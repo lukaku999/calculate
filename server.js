@@ -11,6 +11,14 @@ app.get("/calculate", (req, res) => {
   res.send(`calculte: ${c}`);
 });
 
+app.get("/calculate/:name", (req, res) => {
+  const a = req.query.a;
+  const b = req.query.b;
+  const c = (a + b).toString();
+  const name = req.params.name;
+  res.send(`${name} calculte: ${c}`);
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
